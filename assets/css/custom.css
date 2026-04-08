@@ -229,11 +229,20 @@ select:focus {
 
 /* Nav Link Styling */
 .nav-link {
-  padding: 0.8rem 1rem;
+  padding: 0.8rem 1rem !important;
   color: #333;
   font-size: 1.1rem;
   font-weight: 500;
 }
+
+
+li#pulse-btn a {
+    background: #FFD734;
+    border-radius: 30px;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+}
+
 
 /* Dropdown Styling */
 .dropdown-menu {
