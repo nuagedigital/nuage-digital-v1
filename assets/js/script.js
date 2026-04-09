@@ -194,3 +194,49 @@ window.addEventListener('scroll', function() {
     header.classList.remove('scrolled');
   }
 });
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Get the element containing the text
+    const paragraph = document.getElementById('scroll-text');
+    const words = paragraph.textContent.split(' ');
+
+    // Create a span for each word
+    paragraph.innerHTML = words.map(word => `<span>${word}</span>`).join(' ');
+
+    // Get all the span elements
+    const spans = document.querySelectorAll('.help_content span');
+
+    // Function to check scroll position and apply color change word by word
+    window.addEventListener('scroll', function () {
+        // Get the current scroll position (Y-axis)
+        const scrollPosition = window.scrollY;
+
+        // Set the threshold for when to start applying the color change (50px)
+        const threshold = 50;
+
+        // Apply the effect if the scroll position is greater than the threshold
+        if (scrollPosition > threshold) {
+            // Calculate the percentage of the scroll in relation to the total height of the paragraph
+            const paragraphTop = paragraph.offsetTop;
+            const paragraphHeight = paragraph.offsetHeight;
+            const scrollPercentage = Math.min((scrollPosition - paragraphTop + window.innerHeight) / paragraphHeight, 1);
+            const wordsToColor = Math.floor(scrollPercentage * words.length);
+
+            // Apply the color change word by word
+            spans.forEach((span, index) => {
+                if (index < wordsToColor) {
+                    span.classList.add('scroll-effect'); // Add the class to change the color
+                } else {
+                    span.classList.remove('scroll-effect'); // Remove the class when not in range
+                }
+            });
+        } else {
+            // Reset all words if the scroll position is less than the threshold
+            spans.forEach((span) => {
+                span.classList.remove('scroll-effect');
+            });
+        }
+    });
+});
