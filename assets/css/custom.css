@@ -637,9 +637,6 @@ h1.headline {
   transition: color 0.3s ease;
 }
 
-.scroll-effect {
-  color: #f39c12; /* New color for scroll effect */
-}
 
 .another-effect {
   color: #3498db; /* Example: Another effect color */
@@ -649,6 +646,8 @@ h1.headline {
 section.hero1 {
   background-image: url(../images/Frame-39543.png);
   background-size: cover;
+  padding-top: 3rem;
+    padding-bottom: 3rem;
 }
 
 
