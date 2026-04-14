@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Team</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"/>
+  <!-- Slick CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+
+  <style>
+    .team-section { background: #fff; padding: 60px 0; }
+    .team-tag { font-size: 12px; color: #999; letter-spacing: 1px; text-transform: uppercase; }
+    .team-card { background: #f5c518; border-radius: 6px; padding: 30px 20px 20px; margin: 0 10px; min-height: 250px; position: relative; display: flex; flex-direction: column; justify-content: flex-end; }
+    .card-thumb { width: 64px; height: 64px; background: rgba(255,255,255,0.45); border-radius: 4px; position: absolute; top: 24px; left: 20px; }
+    .card-name { font-size: 14px; font-weight: 600; color: #1a1100; margin-bottom: 2px; }
+    .card-role { font-size: 12px; color: #5a3e00; }
+    .ctrl-btn { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; cursor: pointer; border: 1.5px solid #ddd; background: #fff; transition: background 0.2s; }
+    .ctrl-btn:hover { background: #f5c518; border-color: #f5c518; }
+    .ctrl-btn.active-btn { background: #f5c518; border-color: #f5c518; }
+  </style>
+</head>
+<body>
+
+<section class="team-section">
+  <div class="container-fluid px-4">
+
+    <!-- Header Row -->
+    <div class="row align-items-end mb-4">
+      <div class="col-md-8">
+        <p class="team-tag mb-1">Team</p>
+        <h2 class="fw-semibold mb-2">The Team</h2>
+        <p class="text-secondary" style="max-width:420px; font-size:14px;">
+          We are a global team of over 95 experts—including qualified accountants,
+          software developers, and digital marketers—dedicated to building a seamless
+          operational foundation for your business.
+        </p>
+      </div>
+      <div class="col-md-4 d-flex justify-content-end gap-2">
+        <button class="ctrl-btn" id="teamPrev">&#8249;</button>
+        <button class="ctrl-btn active-btn" id="teamNext">&#8250;</button>
+      </div>
+    </div>
+
+    <!-- Slider -->
+    <div id="teamSlider">
+      <div>
+        <div class="team-card">
+          <div class="card-thumb"></div>
+          <p class="card-name mb-0">Faizan Faisal</p>
+          <p class="card-role mb-0">CEO &amp; Founder</p>
+        </div>
+      </div>
+      <div>
+        <div class="team-card">
+          <div class="card-thumb"></div>
+          <p class="card-name mb-0">Lila Chen</p>
+          <p class="card-role mb-0">Head of Design</p>
+        </div>
+      </div>
+      <div>
+        <div class="team-card">
+          <div class="card-thumb"></div>
+          <p class="card-name mb-0">Muhammad Talal</p>
+          <p class="card-role mb-0">Lead Developer</p>
+        </div>
+      </div>
+      <div>
+        <div class="team-card">
+          <div class="card-thumb"></div>
+          <p class="card-name mb-0">Sara Lee</p>
+          <p class="card-role mb-0">Marketing</p>
+        </div>
+      </div>
+      <div>
+        <div class="team-card">
+          <div class="card-thumb"></div>
+          <p class="card-name mb-0">Ahmed Raza</p>
+          <p class="card-role mb-0">Accountant</p>
+        </div>
+      </div>
+      <div>
+        <div class="team-card">
+          <div class="card-thumb"></div>
+          <p class="card-name mb-0">Mia Torres</p>
+          <p class="card-role mb-0">Operations</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- jQuery FIRST, then Slick, then Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  $(document).ready(function () {
+    $('#teamSlider').slick({
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      arrows: false,
+      dots: false,
+      infinite: true,
+      speed: 400,
+      responsive: [
+        { breakpoint: 1200, settings: { slidesToShow: 3 } },
+        { breakpoint: 768,  settings: { slidesToShow: 2 } },
+        { breakpoint: 480,  settings: { slidesToShow: 1 } }
+      ]
+    });
+
+    $('#teamPrev').on('click', function () {
+      $('#teamSlider').slick('slickPrev');
+    });
+
+    $('#teamNext').on('click', function () {
+      $('#teamSlider').slick('slickNext');
+    });
+  });
+</script>
+
+</body>
+</html>

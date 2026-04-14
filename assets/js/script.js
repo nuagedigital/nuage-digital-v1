@@ -195,3 +195,93 @@ window.addEventListener('scroll', function() {
   }
 });
 
+
+
+
+const el = document.getElementById("animatedText");
+
+// Keep arrow separate
+const arrow = '<span class="fw-bold me-1">→</span>';
+const text = el.innerText.replace("→", "").trim();
+
+// Split into words
+const words = text.split(" ");
+
+// Wrap each word
+el.innerHTML = arrow + " " + words.map(word =>
+  `<span class="text-secondary opacity-50">${word}</span>`
+).join(" ");
+
+// Animate word by word
+let i = 0;
+const spans = el.querySelectorAll("span:not(:first-child)");
+
+setInterval(() => {
+  if (i < spans.length) {
+    spans[i].classList.remove("text-secondary", "opacity-50");
+    spans[i].classList.add("text-dark");
+    i++;
+  } else {
+    i = 0;
+    spans.forEach(span => {
+      span.classList.remove("text-dark");
+      span.classList.add("text-secondary", "opacity-50");
+    });
+  }
+}, 120);
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const bars = document.querySelectorAll('.bar-about');
+    
+    function checkScroll() {
+        const triggerPoint = window.innerHeight * 0.75;
+        
+        let hasAnimated = false;
+
+        bars.forEach((bar, index) => {
+            const barTop = bar.getBoundingClientRect().top;
+
+            if (barTop < triggerPoint && !bar.classList.contains('animate')) {
+                // Sequential delay: first bar starts immediately, then others follow
+                const delay = index * 120;   // 120ms delay between each bar
+                
+                setTimeout(() => {
+                    bar.classList.add('animate');
+                }, delay);
+                
+                hasAnimated = true;
+            }
+        });
+    }
+
+    window.addEventListener('scroll', checkScroll);
+    checkScroll(); // Initial check
+});
+
+
+
+$(document).ready(function () {
+    $('#teamSlider').slick({
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      arrows: false,
+      dots: false,
+      infinite: true,
+      speed: 400,
+      responsive: [
+        { breakpoint: 1200, settings: { slidesToShow: 3 } },
+        { breakpoint: 768,  settings: { slidesToShow: 2 } },
+        { breakpoint: 480,  settings: { slidesToShow: 1 } }
+      ]
+    });
+
+    $('#teamPrev').on('click', function () {
+      $('#teamSlider').slick('slickPrev');
+    });
+
+    $('#teamNext').on('click', function () {
+      $('#teamSlider').slick('slickNext');
+    });
+  });

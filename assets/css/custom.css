@@ -647,7 +647,7 @@ section.hero1 {
   background-image: url(../images/Frame-39543.png);
   background-size: cover;
   padding-top: 3rem;
-    padding-bottom: 3rem;
+  padding-bottom: 3rem;
 }
 
 
@@ -3148,6 +3148,9 @@ ul.footprint-list {
   height: 40px;
   top: 40px;
   left: 48px;
+  background: #FFE990;
+      border: 2.5px dashed #FFE990;
+  animation: floatBox 3s ease-in-out infinite reverse;
 }
 
 .fs-2 {
@@ -3155,6 +3158,9 @@ ul.footprint-list {
   height: 40px;
   top: 0;
   left: 185px;
+  background: #FFE990;
+      border: 2.5px dashed #FFE990;
+  animation: floatBox 3s ease-in-out infinite reverse;
 }
 
 .fs-3 {
@@ -3162,65 +3168,92 @@ ul.footprint-list {
   height: 40px;
   top: 18px;
   left: 300px;
+  background: #FFE990;
+      border: 2.5px dashed #FFE990;
+  animation: floatBox 3s ease-in-out infinite reverse;
 }
 
 .fs-4 {
   width: 40px;
   height: 40px;
   top: 34px;
+  background: #FFE990;
+      border: 2.5px dashed #FFE990;
   left: 382px;
+  animation: floatBox 3s ease-in-out infinite reverse;
 }
 
 .fs-5 {
   width: 40px;
   height: 40px;
   top: 10px;
+  background: #FFE990;
+      border: 2.5px dashed #FFE990;
   right: 230px;
+  animation: floatBox 3s ease-in-out infinite reverse;
 }
 
 .fs-6 {
   width: 40px;
   height: 40px;
   top: 300;
+  background: #FFE990;
+      border: 2.5px dashed #FFE990;
   right: 120px;
+  animation: floatBox 3s ease-in-out infinite reverse;
 }
 
 .fs-7 {
   width: 40px;
   height: 40px;
   top: 18px;
+  background: #FFE990;
+      border: 2.5px dashed #FFE990;
   right: 40px;
+  animation: floatBox 3s ease-in-out infinite reverse;
 }
 
 .fs-8 {
   width: 40px;
   height: 40px;
   top: 42px;
+  background: #FFE990;
+      border: 2.5px dashed #FFE990;
   right: 320px;
+  animation: floatBox 3s ease-in-out infinite reverse;
 }
 
 .fs-9 {
   width: 40px;
   height: 40px;
   top: 40px;
+  background: #FFE990;
+      border: 2.5px dashed #FFE990;
   left: 60%;
   transform: translateX(-50%);
+  animation: floatBox 3s ease-in-out infinite reverse;
 }
 
 .fs-10 {
   width: 40px;
   height: 40px;
   top: 18px;
+  background: #FFE990;
+  border: 2.5px dashed #FFE990;
   left: 50%;
   transform: translateX(-50%);
+  animation: floatBox 3s ease-in-out infinite reverse;
 }
 
 .fs-11 {
   width: 40px;
   height: 40px;
   top: 42px;
+  background: #FFE990;
+      border: 2.5px dashed #FFE990;
   left: 40%;
   transform: translateX(-50%);
+  animation: floatBox 3s ease-in-out infinite reverse;
 }
 
 
@@ -3418,3 +3451,149 @@ ul.footprint-list {
     gap: 18px;
   }
 }
+
+
+
+.graph-area-about {
+    display: flex;
+    align-items: flex-end;
+    gap: 14px;
+    height: 280px;
+    padding: 0px 30px;
+}
+
+.bar-about {
+   width: 28px;
+    background-image: radial-gradient(#efc83d 1px, transparent 1px);
+    background-size: 4px 4px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease;
+}
+
+/* Heights - Starting from smallest to largest */
+.bar-about.bar-small        { height: 35%; }
+.bar-about.bar-medium       { height: 55%; }
+.bar-about.bar-medium-short { height: 48%; }
+.bar-about.bar-large        { height: 72%; }
+.bar-about.bar-tall         { height: 88%; }
+.bar-about.bar-extra-large  { height: 96%; }
+.bar-about.bar-extra-large  { height: 110%; }
+.bar-about.bar-extra-large  { height: 112%; }
+
+/* Animation */
+.bar-about.animate {
+    transform: scaleY(1);
+    opacity: 1;
+}
+
+
+.process-about-left,.ps-lg-4 {
+    border: 1px solid #80808030;
+    padding: 12px;
+}
+
+
+
+/* vission-section */
+
+section.vision-section {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+
+
+/* testimonial */
+
+
+    .team-section { background: #fff; padding: 60px 0; }
+    .team-tag { font-size: 12px; color: #999; letter-spacing: 1px; text-transform: uppercase; }
+
+    /* Slick slide equal height fix */
+    #teamSlider .slick-track {
+      display: flex !important;
+    }
+    #teamSlider .slick-slide {
+      height: inherit !important;
+      display: flex !important;
+    }
+    #teamSlider .slick-slide > div {
+      display: flex;
+      width: 100%;
+    }
+
+    /* Card */
+    .team-card {
+      background: linear-gradient(180deg, #FFE169 0%, #FFD734 100%);
+      border-radius: 6px;
+      margin: 0 10px;
+      min-height: 420px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 20px;
+    }
+
+    /* Top-right large animated box */
+    .team-card::before {
+      content: '';
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 64px;
+      height: 64px;
+      background: #FFE990;
+      border: 2.5px dashed #FFE990;
+      /* box-shadow: inset 0 0 0 0 rgba(255,220,50,0.2);
+      background-color: rgba(255, 210, 30, 0.25); */
+      border-radius: 4px;
+      animation: floatBox 3s ease-in-out infinite;
+    }
+
+    /* Bottom-left small animated box */
+    .team-card::after {
+      content: '';
+      position: absolute;
+      bottom: 56px;
+      left: 16px;
+      width: 36px;
+      height: 36px;
+      background: #FFE990;
+      border: 2.5px dashed #FFE990;
+      border-radius: 3px;
+      animation: floatBox 3s ease-in-out infinite reverse;
+    }
+
+    div#teamSlider {
+    width: 100%;
+    max-width: 93%;
+    margin-left: auto;
+}
+
+    @keyframes floatBox {
+      0%   { transform: translateY(0px) rotate(0deg); opacity: 0.55; }
+      50%  { transform: translateY(-7px) rotate(5deg); opacity: 1; }
+      100% { transform: translateY(0px) rotate(0deg); opacity: 0.55; }
+    }
+
+    .team-card:hover::before,
+    .team-card:hover::after {
+      animation-duration: 1s;
+    }
+
+    .card-name { font-size: 14px; font-weight: 600; color: #1a1100; margin-bottom: 2px; position: relative; z-index: 1; }
+    .card-role { font-size: 12px; color: #5a3e00; position: relative; z-index: 1; }
+
+    .ctrl-btn {
+      width: 40px; height: 40px; border-radius: 0%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; cursor: pointer;
+      border: 1.5px solid #ddd; background: #fff;
+      transition: background 0.2s;
+    }
+    .ctrl-btn:hover, .ctrl-btn.active-btn { background: #FFD734; border-color: #FFD734; }
