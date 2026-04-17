@@ -5,11 +5,11 @@ let iterations = 5;   // Start with 5 initial squares
 
 // Function to add grid square with opacity
 const addGridSquare = (x, y, color = '#FFD734', opacity = 1) => {
-    const gridSize =40;
+    const gridSize = 40;
 
     const slice = document.createElement('div');
     slice.classList.add('color-slice');
-    
+
     slice.style.position = 'absolute';
     slice.style.left = `${x}px`;
     slice.style.top = `${y}px`;
@@ -26,7 +26,7 @@ const addGridSquare = (x, y, color = '#FFD734', opacity = 1) => {
 // Fill 5 initial grid squares on load
 const fillInitialGridSquares = () => {
     const gridSize = 40;
-    
+
     for (let i = 0; i < 5; i++) {
         const x = (i * gridSize) + 60;     // Nice horizontal spacing
         const y = 120;                     // Position them nicely
@@ -60,7 +60,7 @@ hero.addEventListener('mouseleave', () => {
     iterations = 0;
 });
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const particlesContainer = document.getElementById("particles-js");
     const particlesContainer1 = document.getElementById("particles-js1");
 
@@ -183,16 +183,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-window.addEventListener('scroll', function() {
-  var header = document.querySelector('header.header');
-  
-  if (window.scrollY > 0) {
-    // When the page is scrolled, add the 'scrolled' class
-    header.classList.add('scrolled');
-  } else {
-    // When the page is at the top, remove the 'scrolled' class
-    header.classList.remove('scrolled');
-  }
+window.addEventListener('scroll', function () {
+    var header = document.querySelector('header.header');
+
+    if (window.scrollY > 0) {
+        // When the page is scrolled, add the 'scrolled' class
+        header.classList.add('scrolled');
+    } else {
+        // When the page is at the top, remove the 'scrolled' class
+        header.classList.remove('scrolled');
+    }
 });
 
 
@@ -209,7 +209,7 @@ const words = text.split(" ");
 
 // Wrap each word
 el.innerHTML = arrow + " " + words.map(word =>
-  `<span class="text-secondary opacity-50">${word}</span>`
+    `<span class="text-secondary opacity-50">${word}</span>`
 ).join(" ");
 
 // Animate word by word
@@ -217,27 +217,27 @@ let i = 0;
 const spans = el.querySelectorAll("span:not(:first-child)");
 
 setInterval(() => {
-  if (i < spans.length) {
-    spans[i].classList.remove("text-secondary", "opacity-50");
-    spans[i].classList.add("text-dark");
-    i++;
-  } else {
-    i = 0;
-    spans.forEach(span => {
-      span.classList.remove("text-dark");
-      span.classList.add("text-secondary", "opacity-50");
-    });
-  }
+    if (i < spans.length) {
+        spans[i].classList.remove("text-secondary", "opacity-50");
+        spans[i].classList.add("text-dark");
+        i++;
+    } else {
+        i = 0;
+        spans.forEach(span => {
+            span.classList.remove("text-dark");
+            span.classList.add("text-secondary", "opacity-50");
+        });
+    }
 }, 120);
 
 
 
 document.addEventListener("DOMContentLoaded", () => {
     const bars = document.querySelectorAll('.bar-about');
-    
+
     function checkScroll() {
         const triggerPoint = window.innerHeight * 0.75;
-        
+
         let hasAnimated = false;
 
         bars.forEach((bar, index) => {
@@ -246,11 +246,11 @@ document.addEventListener("DOMContentLoaded", () => {
             if (barTop < triggerPoint && !bar.classList.contains('animate')) {
                 // Sequential delay: first bar starts immediately, then others follow
                 const delay = index * 120;   // 120ms delay between each bar
-                
+
                 setTimeout(() => {
                     bar.classList.add('animate');
                 }, delay);
-                
+
                 hasAnimated = true;
             }
         });
@@ -264,24 +264,50 @@ document.addEventListener("DOMContentLoaded", () => {
 
 $(document).ready(function () {
     $('#teamSlider').slick({
-      slidesToShow: 4,
-      slidesToScroll: 1,
-      arrows: false,
-      dots: false,
-      infinite: true,
-      speed: 400,
-      responsive: [
-        { breakpoint: 1200, settings: { slidesToShow: 3 } },
-        { breakpoint: 768,  settings: { slidesToShow: 2 } },
-        { breakpoint: 480,  settings: { slidesToShow: 1 } }
-      ]
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        arrows: false,
+        dots: false,
+        infinite: true,
+        speed: 400,
+        responsive: [
+            { breakpoint: 1200, settings: { slidesToShow: 3 } },
+            { breakpoint: 768, settings: { slidesToShow: 2 } },
+            { breakpoint: 480, settings: { slidesToShow: 1 } }
+        ]
     });
 
     $('#teamPrev').on('click', function () {
-      $('#teamSlider').slick('slickPrev');
+        $('#teamSlider').slick('slickPrev');
     });
 
     $('#teamNext').on('click', function () {
-      $('#teamSlider').slick('slickNext');
+        $('#teamSlider').slick('slickNext');
     });
+});
+
+
+
+
+
+// index
+
+
+
+  // Select the Services dropdown button and the dropdown menu
+  const servicesDropdown = document.getElementById('servicesDropdown');
+  const customDropdownMenu = document.querySelector('.custom-dropdown-menu');
+
+  // Add click event listener to toggle the dropdown visibility
+  servicesDropdown.addEventListener('click', function (e) {
+    e.preventDefault();  // Prevent default link behavior
+
+    // Toggle the display of the mega menu
+    if (customDropdownMenu.style.display === 'block') {
+      customDropdownMenu.style.display = 'none';
+      customDropdownMenu.style.opacity = '0';  // Optionally, fade out
+    } else {
+      customDropdownMenu.style.display = 'block';
+      customDropdownMenu.style.opacity = '1';  // Fade in the menu
+    }
   });

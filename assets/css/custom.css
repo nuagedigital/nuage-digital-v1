@@ -165,11 +165,15 @@ select:focus {
 
 
 .navbar-light .navbar-nav .nav-link {
-  color: #000;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 100%;
-  text-transform: uppercase;
+      color: #000;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 100%;
+    text-transform: uppercase;
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+    margin-left: 13px;
+    margin-right: 13px;
 }
 
 
@@ -2490,7 +2494,6 @@ section.finance-section {
 
 .faq-section {
   padding: 90px 0;
-  background: #f7f7f5;
   overflow: hidden;
 }
 
@@ -3597,3 +3600,113 @@ section.vision-section {
       transition: background 0.2s;
     }
     .ctrl-btn:hover, .ctrl-btn.active-btn { background: #FFD734; border-color: #FFD734; }
+
+
+
+    /*---contacct---*/
+
+
+.hubspot_form {
+    border: 1px solid #00000012;
+    border-radius: 11px;
+    background-color: #ffffff !important;
+    position: relative;
+    z-index: 9999;
+}
+
+
+.nuage-info .container {
+    border: 1px solid #0000001f;
+    border-radius: 17px;
+}
+
+.contact-info svg {
+    width: 42px;
+    height: 42px;
+    margin-bottom: 1rem;
+}
+
+
+.seo-meeting-link {
+   background: #fed21a;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    height: 696px;
+    border-radius: 10px;
+}
+
+
+
+/*--mega-menu---*/
+
+
+ul.custom-dropdown-menu {
+    position: absolute;
+    left: 50%;
+    max-width: 84%;
+    width: 100%;
+    padding-top: 27px;
+    padding-bottom: 15px;
+    top: 66px;
+    margin: 0 auto;
+    transform: translateX(-50%);
+    display: none;
+    border-radius: 10px;
+    margin-top: 9px;
+    opacity: 0;
+    transition: opacity 0.9s ease;
+    padding-left: 17px;
+    padding-right: 17px;
+    border: 0.1px solid #00000040;
+    background: #FFFFFFA6;  /* Light transparent white background */
+    
+    /* Adding a background image */
+    background-image: url('../images/mega_menu.png');  /* Add your image URL here */
+    background-size: cover;  /* Makes the background image cover the entire area */
+    background-repeat: no-repeat;  /* Prevents the background from repeating */
+    background-position: center center;  /* Centers the background image */
+}
+
+.service-box {
+    clear: both;
+    overflow: hidden;
+    text-align: left;
+    /*align-items: center;*/
+    display: flex;
+
+    transition: background 0.3s ease, transform 0.2s ease; /* Add transition for background and transform */
+    backdrop-filter: blur(18.69613265991211px);
+    padding: 4px;  /* Padding inside the box */
+    border-radius: 10px;  /* Rounded corners for the box */
+    background: #FFFFFFB2;  /* Semi-transparent white background */
+    border: 0.63px solid;  /* Border width and type (solid) */
+    border-image-source: linear-gradient(262.67deg, rgba(255, 255, 255, 0.15) -2.51%, rgba(255, 255, 255, 0) 50.5%, rgba(255, 255, 255, 0.15) 100.49%);  /* Gradient border */
+
+}
+
+.service-box:hover {
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
+                linear-gradient(0deg, rgba(255, 156, 57, 0.06), rgba(255, 156, 57, 0.06));
+    cursor: pointer;
+    transform: scale(1.05); /* Slightly scale up on hover */
+}
+
+.service-icon {
+    float: left;
+    margin-left: 10px;
+}
+
+.service-mg-txt {
+    overflow: hidden;
+}
+
+
+.service-mg-txt p {
+    font-size: 12px;
+}
+
+
+.service-mg-txt h5 {
+    font-size: 18px;
+    line-height: 30px;
+    margin-bottom: 0px;
+}
