@@ -1407,7 +1407,6 @@ section.industry .col-lg-2 {
 
 .solutions-section {
   padding: 90px 0;
-  background: #f6f6f4;
   overflow: hidden;
 }
 
@@ -1934,8 +1933,8 @@ section.finance-section {
 
 .solutions-section {
   padding: 90px 0;
-  background: #f6f6f4;
   overflow: hidden;
+  background: #FFFDF4;
 }
 
 .solutions-heading {
@@ -2381,11 +2380,13 @@ section.finance-section {
 .pulse-card {
   height: 100%;
   min-height: 120px;
-  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0px 3.33px 11.08px 0px #00000012;
+  backdrop-filter: blur(170.70755004882812px);
   border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: 10px;
   padding: 18px 16px;
   backdrop-filter: blur(12px);
+  background-color: #ffffffff;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
@@ -2495,6 +2496,7 @@ section.finance-section {
 .faq-section {
   padding: 90px 0;
   overflow: hidden;
+  background: #FFFDF4;
 }
 
 .faq-left .faq-tag {
@@ -2880,7 +2882,6 @@ section.finance-section {
 /* section */
 .footprint-section {
   padding: 90px 0;
-  background: #f7f7f4;
   overflow: hidden;
 }
 
