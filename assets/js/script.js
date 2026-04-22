@@ -1,191 +1,110 @@
-const hero = document.querySelector('.hero');
-const grid = document.querySelector('.grid-bg');
+// Wait for the DOM to be fully loaded before executing the script
+document.addEventListener("DOMContentLoaded", function () {
+    // Ensure elements exist before accessing them
+    const hero = document.querySelector('.hero');
+    const grid = document.querySelector('.grid-bg');
 
-let iterations = 5;   // Start with 5 initial squares
-
-// Function to add grid square with opacity
-const addGridSquare = (x, y, color = '#FFD734', opacity = 1) => {
-    const gridSize = 40;
-
-    const slice = document.createElement('div');
-    slice.classList.add('color-slice');
-
-    slice.style.position = 'absolute';
-    slice.style.left = `${x}px`;
-    slice.style.top = `${y}px`;
-    slice.style.width = `${gridSize}px`;
-    slice.style.height = `${gridSize}px`;
-    slice.style.backgroundColor = color;
-    slice.style.opacity = opacity;
-    slice.style.pointerEvents = 'none';     // Don't block mouse
-    slice.style.zIndex = '2';
-
-    grid.appendChild(slice);
-};
-
-// Fill 5 initial grid squares on load
-const fillInitialGridSquares = () => {
-    const gridSize = 40;
-
-    for (let i = 0; i < 5; i++) {
-        const x = (i * gridSize) + 60;     // Nice horizontal spacing
-        const y = 120;                     // Position them nicely
-        addGridSquare(x, y, '#FFD734', 0.65);   // Initial squares more visible
+    if (!hero || !grid) {
+        console.error("Required elements not found on the page");
+        return;
     }
-};
 
-// Initialize
-fillInitialGridSquares();
+    let iterations = 5;   // Start with 5 initial squares
 
-// Hover Effect - Fill grid squares as mouse moves over hero
-hero.addEventListener('mousemove', (e) => {
-    const gridSize = 40;
-    const x = Math.floor(e.clientX / gridSize) * gridSize;
-    const y = Math.floor(e.clientY / gridSize) * gridSize;
+    // Function to add grid square with opacity
+    const addGridSquare = (x, y, color = '#FFD734', opacity = 1) => {
+        const gridSize = 40;
 
-    // Limit total colored squares
-    if (iterations < 40) {
-        addGridSquare(x, y, '#FFD734', 0.4);   // 0.4 opacity as you wanted
-        iterations++;
-    } else {
-        // Clear all squares when limit is reached
+        const slice = document.createElement('div');
+        slice.classList.add('color-slice');
+
+        slice.style.position = 'absolute';
+        slice.style.left = `${x}px`;
+        slice.style.top = `${y}px`;
+        slice.style.width = `${gridSize}px`;
+        slice.style.height = `${gridSize}px`;
+        slice.style.backgroundColor = color;
+        slice.style.opacity = opacity;
+        slice.style.pointerEvents = 'none';     // Don't block mouse
+        slice.style.zIndex = '2';
+
+        grid.appendChild(slice);
+    };
+
+    // Fill 5 initial grid squares on load
+    const fillInitialGridSquares = () => {
+        const gridSize = 40;
+
+        for (let i = 0; i < 5; i++) {
+            const x = (i * gridSize) + 60;     // Nice horizontal spacing
+            const y = 120; // Position them nicely
+            addGridSquare(x, y, '#FFD734', 0.65);   // Initial squares more visible
+        }
+    };
+
+    // Initialize grid
+    fillInitialGridSquares();
+
+    // Hover Effect - Fill grid squares as mouse moves over hero
+    hero.addEventListener('mousemove', (e) => {
+        const gridSize = 40;
+        const x = Math.floor(e.clientX / gridSize) * gridSize;
+        const y = Math.floor(e.clientY / gridSize) * gridSize;
+
+        // Limit total colored squares
+        if (iterations < 40) {
+            addGridSquare(x, y, '#FFD734', 0.4);   // 0.4 opacity as you wanted
+            iterations++;
+        } else {
+            // Clear all squares when limit is reached
+            document.querySelectorAll('.color-slice').forEach(slice => slice.remove());
+            iterations = 0;
+        }
+    });
+
+    // Optional: Clear everything when mouse leaves the hero area
+    hero.addEventListener('mouseleave', () => {
         document.querySelectorAll('.color-slice').forEach(slice => slice.remove());
         iterations = 0;
-    }
-});
-
-// Optional: Clear everything when mouse leaves the hero area
-hero.addEventListener('mouseleave', () => {
-    document.querySelectorAll('.color-slice').forEach(slice => slice.remove());
-    iterations = 0;
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-    const particlesContainer = document.getElementById("particles-js");
-    const particlesContainer1 = document.getElementById("particles-js1");
+    });
 
     // Initialize particlesJS for the first div
-    particlesJS("particles-js", {
-        particles: {
-            number: {
-                value: 20,
-                density: { enable: true, value_area: 1282.7 }
-            },
-            color: { value: "#FFD734" },
-            shape: {
-                type: "edge",
-                stroke: { width: 0, color: "#FFD734" },
-                polygon: { nb_sides: 4 }
-            },
-            opacity: {
-                value: 0.15,
-                random: true,
-                anim: { enable: true, speed: 1.5, opacity_min: 0.1, sync: false }
-            },
-            size: { value: 21, random: false },
-            move: {
-                enable: true, direction: "none", random: true, straight: false, out_mode: "out",
-                bounce: true, speed: 0.5
-            }
-        },
-        interactivity: {
-            detect_on: "canvas",
-            events: {
-                onhover: { enable: true, mode: "push" },
-                onclick: { enable: true, mode: "push" },
-                resize: true
-            },
-            modes: { push: { particles_nb: 4 } }
-        },
-        retina_detect: true
-    });
+    if (typeof particlesJS !== 'undefined') {
+        const particlesContainer = document.getElementById("particles-js");
+        const particlesContainer1 = document.getElementById("particles-js1");
 
-    // Initialize particlesJS for the second div
-    particlesJS("particles-js1", {
-        particles: {
-            number: {
-                value: 20,
-                density: { enable: true, value_area: 1282.7 }
-            },
-            color: { value: "rgba(255, 215, 52, 0.65)" }, // Different color for the second div
-            shape: {
-                type: "edge",
-                stroke: { width: 0, color: "rgba(255, 215, 52, 0.65)" },
-                polygon: { nb_sides: 4 }
-            },
-            opacity: {
-                value: 0.15,
-                random: true,
-                anim: { enable: true, speed: 50, opacity_min: 0.9, sync: false }
-            },
-            size: { value: 21, random: false },
-            move: {
-                enable: true, direction: "none", random: true, straight: false, out_mode: "out",
-                bounce: true, speed: 0.1
-            }
-        },
-        interactivity: {
-            detect_on: "canvas",
-            events: {
-                onhover: { enable: true, mode: "push" },
-                onclick: { enable: true, mode: "push" },
-                resize: true
-            },
-            modes: { push: { particles_nb: 4 } }
-        },
-        retina_detect: true
-    });
-
-    // Function to start the smooth pulse effect for particles
-    function startPulseEffect() {
-        const containers = [particlesContainer, particlesContainer1];
-        containers.forEach(container => {
-            const canvas = container.querySelector("canvas");
-
-            if (canvas) {
-                const ctx = canvas.getContext("2d");
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-
-                let pulseEffectActive = true;
-
-                // Pulse effect: Toggle opacity smoothly
-                setInterval(() => {
-                    // Clear the canvas
-                    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-                    // Apply the color with opacity for the pulse effect
-                    const opacity = pulseEffectActive ? 0.65 : 0; // Toggle opacity between 0.65 (visible) and 0 (hidden)
-                    ctx.fillStyle = "rgba(255, 215, 52, " + opacity + ")"; // Set opacity in the fill color
-                    ctx.globalAlpha = opacity; // Set global opacity for particles
-
-                    // Generate random positions for particles
-                    const x = Math.random() * canvas.width;
-                    const y = Math.random() * canvas.height;
-
-                    // Draw circles representing particles
-                    ctx.beginPath();
-                    ctx.arc(x, y, 10, 0, Math.PI * 2);
-                    ctx.fill();
-
-                    // Toggle pulse effect (between 0.65 and 0) to show/hide particles
-                    pulseEffectActive = !pulseEffectActive; // Alternate opacity every interval
-
-                }, 1500); // Pulse every 1.5 seconds (adjust to your preference)
+        particlesJS("particles-js", {
+            particles: {
+                number: {
+                    value: 20,
+                    density: { enable: true, value_area: 1282.7 }
+                },
+                color: { value: "#FFD734" },
+                shape: {
+                    type: "edge",
+                    stroke: { width: 0, color: "#FFD734" },
+                    polygon: { nb_sides: 4 }
+                },
+                opacity: {
+                    value: 0.15,
+                    random: true,
+                    anim: { enable: true, speed: 1.5, opacity_min: 0.1, sync: false }
+                },
+                size: { value: 21, random: false },
+                move: {
+                    enable: true, direction: "none", random: true, straight: false, out_mode: "out",
+                    bounce: true, speed: 0.5
+                }
             }
         });
+    } else {
+        console.error("particlesJS library not found");
     }
-
-    startPulseEffect(); // Start the pulse effect
 });
-
-
-
 
 
 window.addEventListener('scroll', function () {
-    var header = document.querySelector('header.header');
-
+    var header = document.querySelector('.header');
     if (window.scrollY > 0) {
         // When the page is scrolled, add the 'scrolled' class
         header.classList.add('scrolled');
@@ -194,7 +113,6 @@ window.addEventListener('scroll', function () {
         header.classList.remove('scrolled');
     }
 });
-
 
 
 
@@ -262,52 +180,129 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-$(document).ready(function () {
-    $('#teamSlider').slick({
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        arrows: false,
-        dots: false,
-        infinite: true,
-        speed: 400,
-        responsive: [
-            { breakpoint: 1200, settings: { slidesToShow: 3 } },
-            { breakpoint: 768, settings: { slidesToShow: 2 } },
-            { breakpoint: 480, settings: { slidesToShow: 1 } }
-        ]
+
+// finance
+
+    // const financeSection = document.getElementById("finance-section");
+
+    // const financeObserver = new IntersectionObserver((entries) => {
+    //   entries.forEach((entry) => {
+    //     if (entry.isIntersecting) {
+    //       entry.target.classList.add("show");
+    //     }
+    //   });
+    // }, {
+    //   threshold: 0.25
+    // });
+
+    // financeObserver.observe(financeSection);
+
+
+// process
+
+    const processSection = document.getElementById("processSection");
+
+    const processObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, {
+      threshold: 0.25
     });
 
-    $('#teamPrev').on('click', function () {
-        $('#teamSlider').slick('slickPrev');
+    processObserver.observe(processSection);
+
+
+
+// solution
+
+
+    const solutionsSection = document.getElementById("solutionsSection");
+
+    const solutionsObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, {
+      threshold: 0.2
     });
 
-    $('#teamNext').on('click', function () {
-        $('#teamSlider').slick('slickNext');
+    solutionsObserver.observe(solutionsSection);
+
+
+
+    // pulse
+
+
+
+    const pulseSection = document.getElementById("pulseSection");
+
+    const pulseObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, {
+      threshold: 0.2
     });
-});
+
+    pulseObserver.observe(pulseSection);
 
 
 
 
 
-// index
+    // footprint
+
+
+    const section = document.getElementById("footprintSection");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, { threshold: 0.2 });
+
+    observer.observe(section);
 
 
 
-  // Select the Services dropdown button and the dropdown menu
-  const servicesDropdown = document.getElementById('servicesDropdown');
-  const customDropdownMenu = document.querySelector('.custom-dropdown-menu');
+    const downIcon = `
+<svg width="16" height="9" viewBox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 1L8 8L15 1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+`;
 
-  // Add click event listener to toggle the dropdown visibility
-  servicesDropdown.addEventListener('click', function (e) {
-    e.preventDefault();  // Prevent default link behavior
+    const upIcon = `
+<svg width="16" height="9" viewBox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 8L8 1L15 8" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+`;
 
-    // Toggle the display of the mega menu
-    if (customDropdownMenu.style.display === 'block') {
-      customDropdownMenu.style.display = 'none';
-      customDropdownMenu.style.opacity = '0';  // Optionally, fade out
-    } else {
-      customDropdownMenu.style.display = 'block';
-      customDropdownMenu.style.opacity = '1';  // Fade in the menu
-    }
-  });
+    document.querySelectorAll(".faq-question").forEach((button) => {
+      button.addEventListener("click", function () {
+        const item = this.parentElement;
+        const allItems = document.querySelectorAll(".faq-item");
+
+        allItems.forEach((faq) => {
+          if (faq !== item) {
+            faq.classList.remove("active");
+            faq.querySelector(".faq-icon").innerHTML = downIcon;
+          }
+        });
+
+        item.classList.toggle("active");
+        const icon = item.querySelector(".faq-icon");
+
+        icon.innerHTML = item.classList.contains("active")
+          ? upIcon
+          : downIcon;
+      });
+    });
