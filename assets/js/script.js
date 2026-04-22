@@ -309,6 +309,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+document.addEventListener("DOMContentLoaded", function () {
+  const counters = document.querySelectorAll(".counter");
 
+  counters.forEach(function (counter) {
+    const target = parseInt(counter.getAttribute("data-target"), 10);
+    let current = 0;
+    const increment = Math.max(1, Math.ceil(target / 100));
 
-    
+    function updateCounter() {
+      current += increment;
+
+      if (current < target) {
+        counter.textContent = current;
+        setTimeout(updateCounter, 20);
+      } else {
+        counter.textContent = target;
+      }
+    }
+
+    updateCounter();
+  });
+});

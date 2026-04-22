@@ -720,7 +720,7 @@ h4#bg_shadow_marketing {
 }
 
 h4#bg_shadow_tax {
-  background-color: #B668FF;
+  background: #FF8383;
   max-width: 40% !important;
 }
 
@@ -765,10 +765,11 @@ h4#bg_shadow_tax {
 /* card base */
 .nuage-services .card {
   position: relative;
-  overflow: hidden;
-  border-radius: 12px;
-  min-height: 280px;
-  cursor: pointer;
+    overflow: hidden;
+    border-radius: 4px;
+    min-height: 280px;
+    cursor: pointer;
+    border: none;
 }
 
 /* dark overlay (hidden initially) */
@@ -3718,4 +3719,61 @@ ul.custom-dropdown-menu {
   z-index: 99999999999;
   opacity: 1;
   top: 65px !important;
+}
+
+
+/* service-page */
+
+
+
+.service_banner_img img {
+    width: 100%;
+    max-width: 67%;
+    margin: 0 auto;
+}
+
+
+section#services {
+    padding-top: 15px;
+}
+
+
+
+section.nuage-counter {
+    background: #FFFDF4;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+
+section.nuage-counter h2 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 20px;
+    padding-right: 50px;
+    line-height:30px;
+    letter-spacing: 0%;
+}
+
+
+
+section.nuage-counter h1 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: Regular;
+    font-size: 50px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-transform: uppercase;
+}
+
+.operation-img img {
+    width: 100%;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+.footer-logo-brand {
+    margin-bottom: 20px;
 }
