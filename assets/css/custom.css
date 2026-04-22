@@ -3711,3 +3711,11 @@ ul.custom-dropdown-menu {
     line-height: 30px;
     margin-bottom: 0px;
 }
+
+
+.nav-item.mega-menu.open .custom-dropdown-menu {
+  display: block;
+  z-index: 99999999999;
+  opacity: 1;
+  top: 65px !important;
+}

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuage-Digital | Index</title>
+    <title>Nuage-Digital | Term and Condition</title>
     <meta name="description" content="This is an example webpage.">
     <meta name="keywords" content="web, development, HTML">
     <meta name="author" content="John Doe">
@@ -574,6 +574,55 @@
     <script src="assets/js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const megaMenuItem = document.querySelector(".nav-item.mega-menu");
+      const trigger = document.querySelector("#servicesDropdown");
+      const dropdown = document.querySelector(".custom-dropdown-menu");
+
+      if (!megaMenuItem || !trigger || !dropdown) return;
+
+      // Position dropdown just below the header
+      function positionDropdown() {
+        const headerBottom = document.querySelector("header.header").getBoundingClientRect().bottom;
+        dropdown.style.top = headerBottom + "px";
+      }
+
+      // Toggle on click
+      trigger.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const isOpen = megaMenuItem.classList.contains("open");
+
+        if (isOpen) {
+          megaMenuItem.classList.remove("open");
+        } else {
+          megaMenuItem.classList.add("open");
+          positionDropdown();
+        }
+      });
+
+      // Close on outside click
+      document.addEventListener("click", function (e) {
+        if (!megaMenuItem.contains(e.target)) {
+          megaMenuItem.classList.remove("open");
+        }
+      });
+
+      // Reposition on scroll/resize (important if header is not fixed)
+      window.addEventListener("resize", function () {
+        if (megaMenuItem.classList.contains("open")) positionDropdown();
+      });
+
+      window.addEventListener("scroll", function () {
+        if (megaMenuItem.classList.contains("open")) positionDropdown();
+      });
+    });
+
+
+
+  </script>
 </body>
 
 </html>

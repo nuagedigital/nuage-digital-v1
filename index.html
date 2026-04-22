@@ -1483,7 +1483,7 @@
 
     $(document).ready(function () {
 
-      
+
       $('.logo-wrapper').slick({
         slidesToShow: 4,       // Number of slides to show at once
         slidesToScroll: 1,     // Number of slides to scroll at a time
@@ -1543,26 +1543,49 @@
 
 
 
-    document.addEventListener("DOMContentLoaded", function () {
-  function setAllMegaMenusFullWidth() {
-    const megaItems = document.querySelectorAll(".mega-menu-megamenu");
-    const pageWidth = document.documentElement.clientWidth;
+  document.addEventListener("DOMContentLoaded", function () {
+  const megaMenuItem = document.querySelector(".nav-item.mega-menu");
+  const trigger = document.querySelector("#servicesDropdown");
+  const dropdown = document.querySelector(".custom-dropdown-menu");
 
-    megaItems.forEach(function (item) {
-      const subMenu = item.querySelector(":scope > .mega-sub-menu");
-      if (!subMenu) return;
+  if (!megaMenuItem || !trigger || !dropdown) return;
 
-      subMenu.style.width = pageWidth + "px";
-      subMenu.style.maxWidth = pageWidth + "px";
-      subMenu.style.left = "50%";
-      subMenu.style.right = "auto";
-      subMenu.style.transform = "translateX(-50%)";
-      subMenu.style.boxSizing = "border-box";
-    });
+  // Position dropdown just below the header
+  function positionDropdown() {
+    const headerBottom = document.querySelector("header.header").getBoundingClientRect().bottom;
+    dropdown.style.top = headerBottom + "px";
   }
 
-  setAllMegaMenusFullWidth();
-  window.addEventListener("resize", setAllMegaMenusFullWidth);
+  // Toggle on click
+  trigger.addEventListener("click", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const isOpen = megaMenuItem.classList.contains("open");
+
+    if (isOpen) {
+      megaMenuItem.classList.remove("open");
+    } else {
+      megaMenuItem.classList.add("open");
+      positionDropdown();
+    }
+  });
+
+  // Close on outside click
+  document.addEventListener("click", function (e) {
+    if (!megaMenuItem.contains(e.target)) {
+      megaMenuItem.classList.remove("open");
+    }
+  });
+
+  // Reposition on scroll/resize (important if header is not fixed)
+  window.addEventListener("resize", function () {
+    if (megaMenuItem.classList.contains("open")) positionDropdown();
+  });
+
+  window.addEventListener("scroll", function () {
+    if (megaMenuItem.classList.contains("open")) positionDropdown();
+  });
 });
 
 
