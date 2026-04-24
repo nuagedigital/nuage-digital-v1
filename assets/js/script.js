@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const grid = document.querySelector('.grid-bg');
 
     if (!hero || !grid) {
-        console.error("Required elements not found on the page");
+        // console.error("Required elements not found on the page");
         return;
     }
 
@@ -116,37 +116,115 @@ window.addEventListener('scroll', function () {
 
 
 
-const el = document.getElementById("animatedText");
+// const el = document.getElementById("animatedText");
 
-// Keep arrow separate
-const arrow = '<span class="fw-bold me-1">→</span>';
-const text = el.innerText.replace("→", "").trim();
+// // Keep arrow separate
+// const arrow = '<span class="fw-bold me-1">→</span>';
+// const text = el.innerText.replace("→", "").trim();
 
-// Split into words
-const words = text.split(" ");
+// // Split into words
+// const words = text.split(" ");
 
-// Wrap each word
-el.innerHTML = arrow + " " + words.map(word =>
-    `<span class="text-secondary opacity-50">${word}</span>`
-).join(" ");
+// // Wrap each word
+// el.innerHTML = arrow + " " + words.map(word =>
+//     `<span class="text-secondary opacity-50">${word}</span>`
+// ).join(" ");
 
-// Animate word by word
-let i = 0;
-const spans = el.querySelectorAll("span:not(:first-child)");
+// // Animate word by word
+// let i = 0;
+// const spans = el.querySelectorAll("span:not(:first-child)");
 
-setInterval(() => {
-    if (i < spans.length) {
-        spans[i].classList.remove("text-secondary", "opacity-50");
-        spans[i].classList.add("text-dark");
-        i++;
-    } else {
+// setInterval(() => {
+//     if (i < spans.length) {
+//         spans[i].classList.remove("text-secondary", "opacity-50");
+//         spans[i].classList.add("text-dark");
+//         i++;
+//     } else {
+//         i = 0;
+//         spans.forEach(span => {
+//             span.classList.remove("text-dark");
+//             span.classList.add("text-secondary", "opacity-50");
+//         });
+//     }
+// }, 120);
+
+
+
+function initAnimatedText() {
+    const el = document.getElementById("animatedText");
+    
+    if (!el) {
+        console.warn("Element with id 'animatedText' not found");
+        return;
+    }
+    
+    // Keep arrow separate
+    const arrow = '<span class="fw-bold me-1">→</span>';
+    const text = el.innerText.replace("→", "").trim();
+    
+    // Split into words
+    const words = text.split(" ");
+    
+    // Wrap each word
+    el.innerHTML = arrow + " " + words.map(word =>
+        `<span class="text-secondary opacity-50">${word}</span>`
+    ).join(" ");
+    
+    // Animate word by word
+    let i = 0;
+    let animationInterval = null;
+    const spans = el.querySelectorAll("span:not(:first-child)");
+    
+    function startAnimation() {
+        if (animationInterval) return; // Already animating
+        
+        animationInterval = setInterval(() => {
+            if (i < spans.length) {
+                spans[i].classList.remove("text-secondary", "opacity-50");
+                spans[i].classList.add("text-dark");
+                i++;
+            } else {
+                i = 0;
+                spans.forEach(span => {
+                    span.classList.remove("text-dark");
+                    span.classList.add("text-secondary", "opacity-50");
+                });
+            }
+        }, 120);
+    }
+    
+    function resetAnimation() {
+        if (animationInterval) {
+            clearInterval(animationInterval);
+            animationInterval = null;
+        }
         i = 0;
         spans.forEach(span => {
             span.classList.remove("text-dark");
             span.classList.add("text-secondary", "opacity-50");
         });
     }
-}, 120);
+    
+    // Use Intersection Observer to trigger animation when element comes into view
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                startAnimation();
+            } else {
+                resetAnimation();
+            }
+        });
+    }, { threshold: 0.3 }); // Trigger when 30% of element is visible
+    
+    observer.observe(el);
+}
+
+// Run when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAnimatedText);
+} else {
+    initAnimatedText();
+}
 
 
 
@@ -200,19 +278,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // process
 
-    const processSection = document.getElementById("processSection");
+// Using querySelector to select by class or ID
+const processSection = document.querySelector(".process-section"); 
 
-    const processObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show");
-        }
-      });
-    }, {
-      threshold: 0.25
-    });
+const processObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+}, {
+  threshold: 0.25
+});
 
-    processObserver.observe(processSection);
+// Check if element exists before observing
+if (processSection) {
+  processObserver.observe(processSection);
+} else {
+  console.error("Process section not found!");
+}
 
 
 
@@ -329,5 +413,26 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     updateCounter();
+  });
+});
+
+
+
+
+
+// mainservice-page
+
+
+// Get all pricing cards
+const cards = document.querySelectorAll('.prcing-card-section .card');
+
+// Add active class to the first card
+cards[0].classList.add('active');
+
+// Handle hover
+cards.forEach(card => {
+  card.addEventListener('mouseenter', () => {
+    cards.forEach(c => c.classList.remove('active'));
+    card.classList.add('active');
   });
 });

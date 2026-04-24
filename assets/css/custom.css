@@ -3153,8 +3153,8 @@ ul.footprint-list {
   height: 40px;
   top: 40px;
   left: 48px;
-  background: #FFE990;
-      border: 2.5px dashed #FFE990;
+  background: #FCE6D080;
+  /* border: 2.5px dashed #FCE6D080; */
   animation: floatBox 3s ease-in-out infinite reverse;
 }
 
@@ -3163,8 +3163,8 @@ ul.footprint-list {
   height: 40px;
   top: 0;
   left: 185px;
-  background: #FFE990;
-      border: 2.5px dashed #FFE990;
+  background: #FCE6D080;
+  /* border: 2.5px dashed #FCE6D080; */
   animation: floatBox 3s ease-in-out infinite reverse;
 }
 
@@ -3173,8 +3173,8 @@ ul.footprint-list {
   height: 40px;
   top: 18px;
   left: 300px;
-  background: #FFE990;
-      border: 2.5px dashed #FFE990;
+  background: #FCE6D080;
+  /* border: 2.5px dashed #FCE6D080; */
   animation: floatBox 3s ease-in-out infinite reverse;
 }
 
@@ -3182,8 +3182,8 @@ ul.footprint-list {
   width: 40px;
   height: 40px;
   top: 34px;
-  background: #FFE990;
-      border: 2.5px dashed #FFE990;
+  background: #FCE6D080;
+  /* border: 2.5px dashed #FCE6D080; */
   left: 382px;
   animation: floatBox 3s ease-in-out infinite reverse;
 }
@@ -3192,8 +3192,8 @@ ul.footprint-list {
   width: 40px;
   height: 40px;
   top: 10px;
-  background: #FFE990;
-      border: 2.5px dashed #FFE990;
+   background: #FCE6D080;
+  /* border: 2.5px dashed #FCE6D080; */
   right: 230px;
   animation: floatBox 3s ease-in-out infinite reverse;
 }
@@ -3202,8 +3202,8 @@ ul.footprint-list {
   width: 40px;
   height: 40px;
   top: 300;
-  background: #FFE990;
-      border: 2.5px dashed #FFE990;
+   background: #FCE6D080;
+  /* border: 2.5px dashed #FCE6D080; */
   right: 120px;
   animation: floatBox 3s ease-in-out infinite reverse;
 }
@@ -3212,8 +3212,8 @@ ul.footprint-list {
   width: 40px;
   height: 40px;
   top: 18px;
-  background: #FFE990;
-      border: 2.5px dashed #FFE990;
+   background: #FCE6D080;
+  /* border: 2.5px dashed #FCE6D080; */
   right: 40px;
   animation: floatBox 3s ease-in-out infinite reverse;
 }
@@ -3222,8 +3222,8 @@ ul.footprint-list {
   width: 40px;
   height: 40px;
   top: 42px;
-  background: #FFE990;
-      border: 2.5px dashed #FFE990;
+   background: #FCE6D080;
+  /* border: 2.5px dashed #FCE6D080; */
   right: 320px;
   animation: floatBox 3s ease-in-out infinite reverse;
 }
@@ -3232,8 +3232,8 @@ ul.footprint-list {
   width: 40px;
   height: 40px;
   top: 40px;
-  background: #FFE990;
-      border: 2.5px dashed #FFE990;
+   background: #FCE6D080;
+  /* border: 2.5px dashed #FCE6D080; */
   left: 60%;
   transform: translateX(-50%);
   animation: floatBox 3s ease-in-out infinite reverse;
@@ -3243,8 +3243,8 @@ ul.footprint-list {
   width: 40px;
   height: 40px;
   top: 18px;
-  background: #FFE990;
-  border: 2.5px dashed #FFE990;
+  background: #FCE6D080;
+  /* border: 2.5px dashed #FCE6D080; */
   left: 50%;
   transform: translateX(-50%);
   animation: floatBox 3s ease-in-out infinite reverse;
@@ -3254,8 +3254,8 @@ ul.footprint-list {
   width: 40px;
   height: 40px;
   top: 42px;
-  background: #FFE990;
-      border: 2.5px dashed #FFE990;
+   background: #FCE6D080;
+  /* border: 2.5px dashed #FCE6D080; */
   left: 40%;
   transform: translateX(-50%);
   animation: floatBox 3s ease-in-out infinite reverse;
@@ -3776,4 +3776,325 @@ section.nuage-counter h1 {
 
 .footer-logo-brand {
     margin-bottom: 20px;
+}
+
+
+
+
+
+/* --main-service---- */
+
+
+.main-service-content li a {
+    font-family: "DM Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-decoration:none;
+    padding-left:5px;
+    color: #000000;
+}
+
+.main-service-content li{
+    list-style:none
+}
+
+.main-service-content span {
+    font-weight: 300;
+}
+
+.main-service-content h1 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 76px;
+    line-height: 72px;
+    text-transform: capitalize;
+}
+
+
+div#main-service-banner-btn {
+    justify-content: start;
+}
+
+section#service_bookkeping {
+    padding-top: 4rem;
+}
+
+
+section#service_bookkeping p {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: Light;
+    font-size: 16px;
+    line-height: 25px;
+    letter-spacing: 0%;
+}
+
+
+div#main-service-banner-btn a {
+    background: linear-gradient(180deg, #FF9327 0%, #FF850A 100%);
+}
+
+
+
+
+.content-preview {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 11.87px;
+    line-height: 20px;
+    letter-spacing: 0%;
+}
+
+
+.service-flip-card h3 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500 !important;
+    font-style: normal;
+    font-size: 21.36px;
+    line-height: 100%;
+    letter-spacing: 0%;
+}
+
+
+.service-flip-card a {
+    background: #FF9C38;
+    border: 0.24px solid #FF9C38;
+    border-radius: 20px !important;
+    color: #fff !important;
+    text-transform: capitalize !important;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    line-height: 17px;
+    font-size: 9.49px;
+    line-height: 100%;
+    letter-spacing: 0%;
+}
+
+.service-flip-card a:hover {
+    background: #ff9c38;
+    color: #fff !important;
+    border-color: #ff9c38;
+}
+
+
+
+.trap-list-container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 1rem 0;
+}
+    
+    /* feature list with negative/dash icons exactly as image */
+    .feature-list-negative {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 0;
+      writing-mode: vertical-lr;
+    }
+    
+    .feature-list-negative li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.9rem;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #334155;
+      writing-mode: vertical-lr;
+      padding: 38px;
+      background: linear-gradient(180deg, #C8C3C3 0%, rgba(200, 195, 195, 0) 100%);
+      margin: 29px;
+    }
+    
+    .feature-list-negative li i {
+      font-size: 1.25rem;
+      color: #94a3b8;  /* muted gray-blue dash icon */
+      flex-shrink: 0;
+      line-height: 1;
+    }
+    
+    /* optional subtle heading style if you want label above, but only list shown as per request */
+    .list-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #64748b;
+      margin-bottom: 0.75rem;
+    }
+
+
+
+    .tube-txt {
+    border: 1px solid #80808030;
+    padding: 12px;
+    border-radius: 5px;
+    height: 613px;
+}
+
+
+.social-proof-content svg {
+    width: 100px;
+    height: 100px;
+}
+
+
+ul#feature-right-negative {
+    position: relative;
+    top:10px;
+}
+
+ul#feature-right-negative li {
+    margin: 5px 20px;
+    height: 250px;
+    padding:20px;
+}
+
+
+
+ul#feature-right-negative li {
+    background: linear-gradient(180deg, #FF9327 0%, rgba(200, 195, 195, 0) 100%);
+}
+
+div#right_tube {
+    background: linear-gradient(160.77deg, #ff932740 3.61%, rgba(255, 147, 39, 0.02) 368.14%);
+}
+
+
+.list-label li {
+    display: inline;
+}
+
+.list-label ul {
+   position:absolute;
+   transform: translateX(-29px);
+}
+
+
+section.prcing-card-section .card {
+    background-color: #fff;
+    border: 0.88px solid;
+    border-radius: 10px;
+    border-image-source: linear-gradient(262.67deg, rgba(255, 255, 255, 0.15) -2.51%, rgba(255, 255, 255, 0) 50.5%, rgba(255, 255, 255, 0.15) 100.49%);
+    cursor: pointer;
+    transition: background 0.4s ease-in-out, transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 10px !important;
+}
+
+section.prcing-card-section .card:hover {
+    background: url('../images/CARD.png');
+    background-size: cover;
+    background-position: center;
+    box-shadow: none !important;
+    transform: translateY(-5px); /* Optional: adds a lift effect */
+    background-repeat: no-repeat;
+    box-shadow: 0px 1px 34px 0px #FF850AB2 !important; /* Optional: adds a subtle shadow on hover */
+
+}
+
+  /* Active card styling - apply your hover styles here */
+  .prcing-card-section .card.active {
+    background: url('../images/CARD.png');
+    box-shadow: none !important;
+    background-size: cover;
+    background-position: center;
+  }
+
+
+  section.prcing-card-section ul li {
+   font-family: "Poppins", sans-serif;
+   font-weight: 400 !important;
+   font-style: normal;
+   font-size: 16px;
+   line-height: 33px;
+   letter-spacing: 0%;
+   color: #fff
+}
+
+section.prcing-card-section h3 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 32px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    color:#ffff;
+}
+
+span.price-tag {
+   font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: Medium;
+    color: #fff;
+    font-size: 40px;
+    line-height: 150%;
+    letter-spacing: 0%;
+}
+
+
+section.prcing-card-section span.text-secondary.ms-1 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 18px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    color:white !important;
+}
+
+
+section.prcing-card-section p {
+    color: #fff !important;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 31px;
+    letter-spacing: 0%;
+}
+
+
+section.prcing-card-section span.fw-semibold.text-uppercase.small.text-secondary {
+    font-family: "DM Mono", monospace;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 12px;
+    line-height: 150%;
+    letter-spacing: 9%;
+    text-transform: uppercase;
+    color:#fff !important;
+}
+
+section.prcing-card-section ul {
+    padding: 0px;
+    margin: 0px !important;
+}
+
+
+section.prcing-card-section a {
+    width: 100%;
+    max-width: 50%;
+    color: #FF850A;
+    border: none;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 30px;
+     font-family: "DM Mono", monospace;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 14px;
+    line-height: 26px;
+    letter-spacing: 0%;
+    text-transform: uppercase;
+}
+
+section.prcing-card-section a:hover {
+    background-color: #000000;
+    color: #fff;
+    transition: 0.3s ease;
 }
